@@ -1,0 +1,7 @@
+[Unit]
+Description=Prometheus exporter for Vero 4K+ metrics
+Wants=vero_exporter.timer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/vero_exporter
