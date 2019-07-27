@@ -22,7 +22,7 @@ for SENSOR in /sys/class/thermal/thermal_*; do
   CPU_TEMP_CELSIUS="$(awk '{printf "%.3f", $1/1000}' /sys/class/thermal/${SENSOR}/temp)" || true
   CPU_TEMP_CELSIUS="${CPU_TEMP_CELSIUS:=0}"
   CPU_TEMP_TYPE="$(cat /sys/class/thermal/${SENSOR}/type)"
-  CPU_TEMP_TYPE="${CPU_TYPE:=N/A}"
+  CPU_TEMP_TYPE="${CPU_TEMP_TYPE:=N/A}"
 
   echo "${PREFIX}temperature{sensor=\"${SENSOR}\",type=\"${CPU_TEMP_TYPE}\"} ${CPU_TEMP_CELSIUS}" >> "${TMP_FILE}"
 done
